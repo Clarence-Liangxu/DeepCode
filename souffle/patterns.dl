@@ -1,0 +1,33 @@
+.decl addition(file: symbol, line: number, type: symbol)
+.input addition
+
+.decl subtraction(file: symbol, line: number, type: symbol)
+.input subtraction
+
+.decl multiplication(file: symbol, line: number, type: symbol)
+.input multiplication
+
+.decl division(file: symbol, line: number, type: symbol)
+.input division
+
+.decl fma(file: symbol, line: number, type: symbol)
+.input fma
+
+.decl fabs(file: symbol, line: number, type: symbol)
+.input fabs
+
+.decl negation(file: symbol, line: number, type: symbol)
+.input negation
+
+// 增加建议字段
+.decl optimize(file: symbol, line: number, op: symbol, type: symbol, suggest: symbol)
+.output optimize
+
+// 建议替换为 ARM intrinsic
+optimize(f, l, "addition", "f32", "vaddq_f32")         :- addition(f, l, "f32").
+optimize(f, l, "subtraction", "f32", "vsubq_f32")      :- subtraction(f, l, "f32").
+optimize(f, l, "multiplication", "f32", "vmulq_f32")   :- multiplication(f, l, "f32").
+optimize(f, l, "division", "f32", "vdivq_f32")         :- division(f, l, "f32").
+optimize(f, l, "fma", "f32", "vfmaq_f32")              :- fma(f, l, "f32").
+optimize(f, l, "fabs", "f32", "vabsq_f32")             :- fabs(f, l, "f32").
+optimize(f, l, "negation", "f32", "vnegq_f32")         :- negation(f, l, "f32").

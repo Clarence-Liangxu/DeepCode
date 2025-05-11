@@ -1,4 +1,6 @@
 # Prerequisites
+build/
+compile_commands.json
 *.d
 
 # Compiled Object files
