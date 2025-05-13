@@ -1,0 +1,67 @@
+{
+  "List_of_Intrinsics": {
+    "Basic_intrinsics": {
+      "Vector_arithmetic": {
+        "Add": {
+          "intrinsics": [
+            {
+              "name": "vadd_s8",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vadd_s8",
+              "pseudocode": "CheckFPAdvSIMDEnabled64();\nbits(datasize) operand1 = V[n];\nbits(datasize) operand2 = V[m];\nbits(datasize) result;\nbits(esize) element1;\nbits(esize) element2;\n\nfor e = 0 to elements-1\n    element1 = Elem[operand1, e, esize];\n    element2 = Elem[operand2, e, esize];\n    if sub_op then\n        Elem[result, e, esize] = element1 - element2;\n    else\n        Elem[result, e, esize] = element1 + element2;\n\nV[d] = result;"
+            },
+            {
+              "name": "vaddq_s8",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vaddq_s8",
+              "pseudocode": "CheckFPAdvSIMDEnabled64();\nbits(datasize) operand1 = V[n];\nbits(datasize) operand2 = V[m];\nbits(datasize) result;\nbits(esize) element1;\nbits(esize) element2;\n\nfor e = 0 to elements-1\n    element1 = Elem[operand1, e, esize];\n    element2 = Elem[operand2, e, esize];\n    if sub_op then\n        Elem[result, e, esize] = element1 - element2;\n    else\n        Elem[result, e, esize] = element1 + element2;\n\nV[d] = result;"
+            },
+            {
+              "name": "vadd_s16",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vadd_s16",
+              "pseudocode": "CheckFPAdvSIMDEnabled64();\nbits(datasize) operand1 = V[n];\nbits(datasize) operand2 = V[m];\nbits(datasize) result;\nbits(esize) element1;\nbits(esize) element2;\n\nfor e = 0 to elements-1\n    element1 = Elem[operand1, e, esize];\n    element2 = Elem[operand2, e, esize];\n    if sub_op then\n        Elem[result, e, esize] = element1 - element2;\n    else\n        Elem[result, e, esize] = element1 + element2;\n\nV[d] = result;"
+            },
+            {
+              "name": "vaddq_s16",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vaddq_s16",
+              "pseudocode": "CheckFPAdvSIMDEnabled64();\nbits(datasize) operand1 = V[n];\nbits(datasize) operand2 = V[m];\nbits(datasize) result;\nbits(esize) element1;\nbits(esize) element2;\n\nfor e = 0 to elements-1\n    element1 = Elem[operand1, e, esize];\n    element2 = Elem[operand2, e, esize];\n    if sub_op then\n        Elem[result, e, esize] = element1 - element2;\n    else\n        Elem[result, e, esize] = element1 + element2;\n\nV[d] = result;"
+            },
+            {
+              "name": "vadd_s32",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vadd_s32",
+              "pseudocode": "CheckFPAdvSIMDEnabled64();\nbits(datasize) operand1 = V[n];\nbits(datasize) operand2 = V[m];\nbits(datasize) result;\nbits(esize) element1;\nbits(esize) element2;\n\nfor e = 0 to elements-1\n    element1 = Elem[operand1, e, esize];\n    element2 = Elem[operand2, e, esize];\n    if sub_op then\n        Elem[result, e, esize] = element1 - element2;\n    else\n        Elem[result, e, esize] = element1 + element2;\n\nV[d] = result;"
+            },
+            {
+              "name": "vaddq_s32",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vaddq_s32",
+              "pseudocode": "CheckFPAdvSIMDEnabled64();\nbits(datasize) operand1 = V[n];\nbits(datasize) operand2 = V[m];\nbits(datasize) result;\nbits(esize) element1;\nbits(esize) element2;\n\nfor e = 0 to elements-1\n    element1 = Elem[operand1, e, esize];\n    element2 = Elem[operand2, e, esize];\n    if sub_op then\n        Elem[result, e, esize] = element1 - element2;\n    else\n        Elem[result, e, esize] = element1 + element2;\n\nV[d] = result;"
+            },
+            {
+              "name": "vadd_s64",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vadd_s64",
+              "pseudocode": "CheckFPAdvSIMDEnabled64();\nbits(datasize) operand1 = V[n];\nbits(datasize) operand2 = V[m];\nbits(datasize) result;\nbits(esize) element1;\nbits(esize) element2;\n\nfor e = 0 to elements-1\n    element1 = Elem[operand1, e, esize];\n    element2 = Elem[operand2, e, esize];\n    if sub_op then\n        Elem[result, e, esize] = element1 - element2;\n    else\n        Elem[result, e, esize] = element1 + element2;\n\nV[d] = result;"
+            },
+            {
+              "name": "vaddq_s64",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vaddq_s64",
+              "pseudocode": "CheckFPAdvSIMDEnabled64();\nbits(datasize) operand1 = V[n];\nbits(datasize) operand2 = V[m];\nbits(datasize) result;\nbits(esize) element1;\nbits(esize) element2;\n\nfor e = 0 to elements-1\n    element1 = Elem[operand1, e, esize];\n    element2 = Elem[operand2, e, esize];\n    if sub_op then\n        Elem[result, e, esize] = element1 - element2;\n    else\n        Elem[result, e, esize] = element1 + element2;\n\nV[d] = result;"
+            },
+            {
+              "name": "vadd_u8",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vadd_u8",
+              "pseudocode": "CheckFPAdvSIMDEnabled64();\nbits(datasize) operand1 = V[n];\nbits(datasize) operand2 = V[m];\nbits(datasize) result;\nbits(esize) element1;\nbits(esize) element2;\n\nfor e = 0 to elements-1\n    element1 = Elem[operand1, e, esize];\n    element2 = Elem[operand2, e, esize];\n    if sub_op then\n        Elem[result, e, esize] = element1 - element2;\n    else\n        Elem[result, e, esize] = element1 + element2;\n\nV[d] = result;"
+            },
+            {
+              "name": "vaddq_u8",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vaddq_u8",
+              "pseudocode": "CheckFPAdvSIMDEnabled64();\nbits(datasize) operand1 = V[n];\nbits(datasize) operand2 = V[m];\nbits(datasize) result;\nbits(esize) element1;\nbits(esize) element2;\n\nfor e = 0 to elements-1\n    element1 = Elem[operand1, e, esize];\n    element2 = Elem[operand2, e, esize];\n    if sub_op then\n        Elem[result, e, esize] = element1 - element2;\n    else\n        Elem[result, e, esize] = element1 + element2;\n\nV[d] = result;"
+            },
+            {
+              "name": "vadd_u16",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vadd_u16",
+              "pseudocode": "CheckFPAdvSIMDEnabled64();\nbits(datasize) operand1 = V[n];\nbits(datasize) operand2 = V[m];\nbits(datasize) result;\nbits(esize) element1;\nbits(esize) element2;\n\nfor e = 0 to elements-1\n    element1 = Elem[operand1, e, esize];\n    element2 = Elem[operand2, e, esize];\n    if sub_op then\n        Elem[result, e, esize] = element1 - element2;\n    else\n        Elem[result, e, esize] = element1 + element2;\n\nV[d] = result;"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

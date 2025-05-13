@@ -1,0 +1,56 @@
+{
+  "List_of_Intrinsics": {
+    "Basic_intrinsics": {
+      "Vector_arithmetic": {
+        "Add": {
+          "intrinsics": [
+            {
+              "name": "vadd_s8",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vadd_s8"
+            },
+            {
+              "name": "vaddq_s8",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vaddq_s8"
+            },
+            {
+              "name": "vadd_s16",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vadd_s16"
+            },
+            {
+              "name": "vaddq_s16",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vaddq_s16"
+            },
+            {
+              "name": "vadd_s32",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vadd_s32"
+            },
+            {
+              "name": "vaddq_s32",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vaddq_s32"
+            },
+            {
+              "name": "vadd_s64",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vadd_s64"
+            },
+            {
+              "name": "vaddq_s64",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vaddq_s64"
+            },
+            {
+              "name": "vadd_u8",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vadd_u8"
+            },
+            {
+              "name": "vaddq_u8",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vaddq_u8"
+            },
+            {
+              "name": "vadd_u16",
+              "url": "https://developer.arm.com/architectures/instruction-sets/intrinsics/vadd_u16"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
