@@ -1,7 +1,0 @@
-sample.c	4	addition	f32	vaddq_f32
-sample.c	10	subtraction	f32	vsubq_f32
-sample.c	16	multiplication	f32	vmulq_f32
-sample.c	22	division	f32	vdivq_f32
-sample.c	28	fma	f32	vfmaq_f32
-sample.c	34	fabs	f32	vabsq_f32
-sample.c	40	negation	f32	vnegq_f32
