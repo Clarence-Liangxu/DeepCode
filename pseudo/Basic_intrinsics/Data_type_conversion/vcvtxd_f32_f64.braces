@@ -1,0 +1,19 @@
+CheckFPAdvSIMDEnabled64();
+
+bits(2*datasize) operand = V[n];
+FPCRType fpcr    = FPCR[];
+boolean merge    = elements == 1 && IsMerging(fpcr);
+bits(128) result = if merge then V[d] else Zeros();
+
+for e = 0 to elements-1
+{
+    Elem[result, e, esize] = FPConvert(Elem[operand, e, 2*esize], fpcr, FPRounding_ODD);
+}
+if merge then
+{
+    V[d] = result;
+}
+else
+{
+    Vpart[d, part] = Elem[result, 0, datasize];
+}

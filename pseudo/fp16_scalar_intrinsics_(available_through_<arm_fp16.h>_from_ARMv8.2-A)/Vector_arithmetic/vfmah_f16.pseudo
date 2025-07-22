@@ -1,0 +1,15 @@
+CheckFPAdvSIMDEnabled64();
+
+bits(esize) operanda = V[a];
+bits(esize) operand1 = V[n];
+bits(esize) operand2 = V[m];
+
+FPCRType fpcr = FPCR[];
+boolean merge    = IsMerging(fpcr);
+bits(128) result = if merge then V[a] else Zeros();
+
+if opa_neg then operanda = FPNeg(operanda);
+if op1_neg then operand1 = FPNeg(operand1);
+Elem[result, 0, esize] = FPMulAdd(operanda, operand1, operand2, fpcr);
+
+V[d] = result;

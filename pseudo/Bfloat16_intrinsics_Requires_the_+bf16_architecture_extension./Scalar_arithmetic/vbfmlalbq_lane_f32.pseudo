@@ -1,0 +1,13 @@
+CheckFPAdvSIMDEnabled64();
+bits(128) operand1 = V[n];
+bits(128) operand2 = V[m];
+bits(128) operand3 = V[d];
+bits(128) result;
+
+for e = 0 to elements-1
+    bits(32) element1 = Elem[operand1, 2 * e + sel, 16] : Zeros(16);
+    bits(32) element2 = Elem[operand2, 2 * e + sel, 16] : Zeros(16);
+    bits(32) addend   = Elem[operand3, e, 32];
+    Elem[result, e, 32] = BFMulAdd(addend, element1, element2, FPCR[]);
+
+V[d] = result;

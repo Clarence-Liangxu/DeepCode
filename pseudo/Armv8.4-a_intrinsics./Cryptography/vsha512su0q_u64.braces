@@ -1,0 +1,11 @@
+AArch64.CheckFPAdvSIMDEnabled();
+
+bits(64) sig0;
+bits(128) Vtmp;
+bits(128) X = V[n];
+bits(128) W = V[d];
+sig0 = ROR(W<127:64>, 1) EOR ROR(W<127:64>, 8) EOR ('0000000':W<127:71>);
+Vtmp<63:0> = W<63:0> + sig0;
+sig0 = ROR(X<63:0>, 1) EOR ROR(X<63:0>, 8) EOR ('0000000':X<63:7>);
+Vtmp<127:64> = W<127:64> + sig0;
+V[d] = Vtmp;

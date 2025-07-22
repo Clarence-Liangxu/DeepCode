@@ -1,0 +1,5 @@
+AArch64.CheckFPAdvSIMDEnabled();
+
+bits(128) Vm = V[m];
+bits(128) Vn = V[n];
+V[d] = Vn EOR (ROL(Vm<127:64>,1):ROL(Vm<63:0>, 1));

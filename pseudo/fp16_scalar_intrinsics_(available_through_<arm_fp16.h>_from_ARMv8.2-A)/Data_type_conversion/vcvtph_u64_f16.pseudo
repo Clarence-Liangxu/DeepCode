@@ -1,0 +1,13 @@
+CheckFPAdvSIMDEnabled64();
+bits(datasize) operand = V[n];
+
+bits(esize) element;
+FPCRType fpcr    = FPCR[];
+boolean merge    = elements == 1 && IsMerging(fpcr);
+bits(128) result = if merge then V[d] else Zeros();
+
+for e = 0 to elements-1
+    element = Elem[operand, e, esize];
+    Elem[result, e, esize] = FPToFixed(element, 0, unsigned, fpcr, rounding);
+
+V[d] = result;

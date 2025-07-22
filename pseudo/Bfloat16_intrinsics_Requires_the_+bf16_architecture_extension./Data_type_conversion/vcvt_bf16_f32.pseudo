@@ -1,0 +1,8 @@
+CheckFPAdvSIMDEnabled64();
+bits(128) operand = V[n];
+bits(64) result;
+
+for e = 0 to elements-1
+    Elem[result, e, 16] = FPConvertBF(Elem[operand, e, 32], FPCR[]);
+
+Vpart[d, part] = result;

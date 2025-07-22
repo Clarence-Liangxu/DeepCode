@@ -1,0 +1,27 @@
+CheckFPAdvSIMDEnabled64();
+bits(datasize) operand1 = V[n];
+bits(datasize) operand2 = V[m];
+bits(datasize) operand3 = V[d];
+bits(datasize) result;
+bits(esize) element1;
+bits(esize) element3;
+
+for e = 0 to (elements DIV 2) -1
+{
+    case rot of
+    {
+        when '0'
+        {
+            element1 = FPNeg(Elem[operand2, e*2+1, esize]);
+            element3 = Elem[operand2, e*2, esize];
+        }
+        when '1'
+        {
+            element1 = Elem[operand2, e*2+1, esize];
+            element3 = FPNeg(Elem[operand2, e*2, esize]);
+        }
+    }
+    Elem[result, e*2,   esize] = FPAdd(Elem[operand1, e*2, esize], element1, FPCR[]);
+    Elem[result, e*2+1, esize] = FPAdd(Elem[operand1, e*2+1, esize], element3, FPCR[]);
+}
+V[d] = result;

@@ -1,0 +1,6 @@
+// ❌ Failed to fetch: https://developer.arm.com/architectures/instruction-sets/intrinsics/vmul_f32
+// Page.goto: Timeout 20000ms exceeded.
+Call log:
+{
+  - navigating to "https://developer.arm.com/architectures/instruction-sets/intrinsics/vmul_f32", waiting until "load"
+}

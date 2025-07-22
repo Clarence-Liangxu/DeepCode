@@ -1,0 +1,9 @@
+AArch64.CheckFPAdvSIMDEnabled();
+
+bits(128) Vm = V[m];
+bits(128) Vn = V[n];
+bits(128) Vd = V[d];
+bits(128) Va = V[a];
+Vd<127:96> = ROL((ROL(Vn<127:96>,12) + Vm<127:96> + Va<127:96>) , 7);
+Vd<95:0> = Zeros();
+V[d] = Vd;

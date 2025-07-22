@@ -1,0 +1,24 @@
+CheckFPAdvSIMDEnabled64();
+bits(datasize) operand1 = V[n];
+bits(datasize) operand2 = V[m];
+bits(datasize) operand3 = V[d];
+bits(datasize) result;
+integer rounding_const = if rounding then 1 << (esize - 1) else 0;
+integer element1;
+integer element2;
+integer element3;
+integer product;
+boolean sat;
+
+for e = 0 to elements-1
+    element1 = SInt(Elem[operand1, e, esize]);
+    element2 = SInt(Elem[operand2, e, esize]);
+    element3 = SInt(Elem[operand3, e, esize]);
+    if sub_op then
+        accum = ((element3 << esize) - 2 * (element1 * element2) + rounding_const);
+    else
+        accum = ((element3 << esize) + 2 * (element1 * element2) + rounding_const);
+    (Elem[result, e, esize], sat) = SignedSatQ(accum >> esize, esize);
+    if sat then FPSR.QC = '1';
+
+V[d] = result;

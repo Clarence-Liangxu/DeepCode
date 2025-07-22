@@ -1,0 +1,19 @@
+AArch64.CheckFPAdvSIMDEnabled();
+
+bits(128) Vm = V[m];
+bits(128) Vn = V[n];
+bits(128) Vd = V[d];
+bits(32) WjPrime;
+bits(128) result;
+bits(32) TT1;
+bits(32) SS2;
+
+WjPrime = Elem[Vm,i,32];
+SS2 = Vn<127:96> EOR ROL(Vd<127:96>,12);
+TT1 = Vd<63:32> EOR (Vd<127:96> EOR Vd<95:64>);
+TT1 = (TT1 + Vd<31:0> + SS2 + WjPrime)<31:0>;
+result<31:0> = Vd<63:32>;
+result<63:32> = ROL(Vd<95:64>,9);
+result<95:64> = Vd<127:96>;
+result<127:96> = TT1;
+V[d] = result;

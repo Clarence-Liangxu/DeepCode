@@ -1,0 +1,10 @@
+CheckFPAdvSIMDEnabled64();
+
+bits(32) operand = V[n];
+FPCRType fpcr    = FPCR[];
+boolean merge    = IsMerging(fpcr);
+bits(128) result = if merge then V[d] else Zeros();
+
+Elem[result, 0, 16] = FPConvertBF(operand, fpcr);
+
+V[d] = result;

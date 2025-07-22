@@ -1,0 +1,18 @@
+CheckFPAdvSIMDEnabled64();
+bits(datasize) operand1 = V[n];
+bits(128)      operand2 = V[m];
+bits(datasize) operand3 = V[d];
+bits(datasize) result;
+
+for e = 0 to elements-1
+{
+    bits(32) res = Elem[operand3, e, 32];
+    for b = 0 to 3
+    {
+        integer element1 = Int(Elem[operand1, 4 * e + b, 8], op1_unsigned);
+        integer element2 = Int(Elem[operand2, 4 * i + b, 8], op2_unsigned);
+        res = res + element1 * element2;
+    }
+    Elem[result, e, 32] = res;
+}
+V[d] = result;

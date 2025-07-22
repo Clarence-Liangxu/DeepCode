@@ -1,0 +1,17 @@
+AArch64.CheckFPAdvSIMDEnabled();
+
+bits(128) Vtmp;
+bits(64)  MSigma1;
+bits(64)  tmp;
+bits(128) X = V[n];
+bits(128) Y = V[m];
+bits(128) W = V[d];
+
+MSigma1 =  ROR(Y<127:64>, 14) EOR ROR(Y<127:64>,18) EOR ROR(Y<127:64>,41);
+Vtmp<127:64> =  (Y<127:64> AND X<63:0>) EOR (NOT(Y<127:64>) AND X<127:64>);
+Vtmp<127:64> = (Vtmp<127:64> + MSigma1 +  W<127:64>);
+tmp = Vtmp<127:64> + Y<63:0>;
+MSigma1 = ROR(tmp, 14) EOR ROR(tmp,18) EOR ROR(tmp,41);
+Vtmp<63:0> = (tmp AND Y<127:64>) EOR (NOT(tmp) AND X<63:0>);
+Vtmp<63:0> = (Vtmp<63:0> + MSigma1 + W<63:0>);
+V[d] =  Vtmp;

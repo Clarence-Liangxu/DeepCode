@@ -1,0 +1,49 @@
+if HaveMTE2Ext() then
+{
+    SetTagCheckedInstruction(tag_checked);
+}
+CheckFPAdvSIMDEnabled64();
+bits(64) address;
+bits(datasize) data;
+
+if n == 31 then
+{
+    CheckSPAlignment();
+    address = SP[];
+}
+else
+{
+    address = X[n];
+}
+if ! postindex then
+{
+    address = address + offset;
+}
+case memop of
+{
+    when MemOp_STORE
+    {
+        data = V[t];
+        Mem[address, datasize DIV 8, acctype] = data;
+    }
+    when MemOp_LOAD
+    {
+        data = Mem[address, datasize DIV 8, acctype];
+        V[t] = data;
+    }
+}
+if wback then
+{
+    if postindex then
+    {
+        address = address + offset;
+    }
+    if n == 31 then
+    {
+        SP[] = address;
+    }
+    else
+    {
+        X[n] = address;
+    }
+}

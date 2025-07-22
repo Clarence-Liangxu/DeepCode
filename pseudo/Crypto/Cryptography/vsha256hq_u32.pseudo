@@ -1,0 +1,8 @@
+AArch64.CheckFPAdvSIMDEnabled();
+
+bits(128) result;
+if part1 then
+    result = SHA256hash(V[d], V[n], V[m], TRUE);
+else
+    result = SHA256hash(V[n], V[d], V[m], FALSE);
+V[d] = result;

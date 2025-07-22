@@ -1,0 +1,6 @@
+CheckFPAdvSIMDEnabled64();
+bits(128) op1 = V[n];
+bits(128) op2 = V[m];
+bits(128) acc = V[d];
+
+V[d] = BFMatMulAdd(acc, op1, op2);

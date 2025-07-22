@@ -1,0 +1,29 @@
+CheckFPAdvSIMDEnabled64();
+bits(datasize) operand1 = V[n];
+bits(datasize) operand2 = V[m];
+
+bits(esize) element1;
+bits(esize) element2;
+boolean test_passed;
+FPCRType fpcr    = FPCR[];
+boolean merge    = elements == 1 && IsMerging(fpcr);
+bits(128) result = if merge then V[m] else Zeros();
+
+for e = 0 to elements-1
+{
+    element1 = Elem[operand1, e, esize];
+    element2 = Elem[operand2, e, esize];
+    if abs then
+    {
+        element1 = FPAbs(element1);
+        element2 = FPAbs(element2);
+    }
+    case cmp of
+    {
+        when CompareOp_EQ test_passed = FPCompareEQ(element1, element2, fpcr);
+        when CompareOp_GE test_passed = FPCompareGE(element1, element2, fpcr);
+        when CompareOp_GT test_passed = FPCompareGT(element1, element2, fpcr);
+    }
+    Elem[result, e, esize] = if test_passed then Ones() else Zeros();
+}
+V[d] = result;

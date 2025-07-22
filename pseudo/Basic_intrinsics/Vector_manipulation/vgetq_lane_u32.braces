@@ -1,0 +1,4 @@
+CheckFPAdvSIMDEnabled64();
+bits(idxdsize) operand = V[n];
+
+X[d] = ZeroExtend(Elem[operand, index, esize], datasize);

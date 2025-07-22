@@ -1,0 +1,17 @@
+CheckFPAdvSIMDEnabled64();
+bits(datasize) operand1 = V[n];
+bits(datasize) operand2 = V[m];
+
+bits(esize) element1;
+bits(esize) element2;
+bits(esize) diff;
+FPCRType fpcr = FPCR[];
+bits(datasize) result;
+
+for e = 0 to elements-1
+    element1 = Elem[operand1, e, esize];
+    element2 = Elem[operand2, e, esize];
+    diff = FPSub(element1, element2, fpcr);
+    Elem[result, e, esize] = if abs then FPAbs(diff) else diff;
+
+V[d] = result;

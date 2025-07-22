@@ -1,0 +1,19 @@
+CheckFPAdvSIMDEnabled64();
+bits(datasize) operand1 = V[n];
+bits(datasize) operand2 = V[m];
+bits(datasize) result;
+
+result = V[d];
+for e = 0 to elements-1 
+    integer res = 0;
+    integer element1, element2;
+    for i = 0 to 3 
+        if signed then
+            element1 = SInt(Elem[operand1, 4 * e + i, esize DIV 4]); 
+            element2 = SInt(Elem[operand2, 4 * e + i, esize DIV 4]);
+        else 
+            element1 = UInt(Elem[operand1, 4 * e + i, esize DIV 4]); 
+            element2 = UInt(Elem[operand2, 4 * e + i, esize DIV 4]);
+        res = res + element1 * element2; 
+    Elem[result, e, esize] = Elem[result, e, esize] + res;
+V[d] = result;

@@ -1,0 +1,14 @@
+CheckFPAdvSIMDEnabled64();
+bits(datasize DIV 2) operand1 = Vpart[n,part];
+bits(datasize DIV 2) operand2 = Vpart[m,part];
+bits(datasize) operand3 = V[d];
+bits(datasize) result;
+bits(esize DIV 2) element1;
+bits(esize DIV 2) element2;
+
+for e = 0 to elements-1
+    element1 = Elem[operand1, e, esize DIV 2];
+    element2 = Elem[operand2, e, esize DIV 2];
+    if sub_op then element1 = FPNeg(element1);
+    Elem[result,e,esize] = FPMulAddH(Elem[operand3, e, esize], element1, element2, FPCR[]);
+V[d] = result;

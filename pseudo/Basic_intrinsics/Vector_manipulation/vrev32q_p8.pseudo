@@ -1,0 +1,13 @@
+CheckFPAdvSIMDEnabled64();
+bits(datasize) operand = V[n];
+bits(datasize) result;
+integer element = 0;
+integer rev_element;
+for c = 0 to containers-1
+    rev_element = element + elements_per_container - 1;
+    for e = 0 to elements_per_container-1
+        Elem[result, rev_element, esize] = Elem[operand, element, esize];
+        element = element + 1;
+        rev_element = rev_element - 1;
+
+V[d] = result;

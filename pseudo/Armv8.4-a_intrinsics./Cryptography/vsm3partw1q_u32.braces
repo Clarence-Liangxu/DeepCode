@@ -1,0 +1,18 @@
+AArch64.CheckFPAdvSIMDEnabled();
+
+bits(128) Vm = V[m];
+bits(128) Vn = V[n];
+bits(128) Vd = V[d];
+bits(128) result;
+
+result<95:0> = (Vd EOR Vn)<95:0> EOR (ROL(Vm<127:96>,15):ROL(Vm<95:64>,15):ROL(Vm<63:32>,15));
+
+for i = 0 to 3
+{
+    if i == 3 then
+    {
+        result<127:96> = (Vd EOR Vn)<127:96> EOR (ROL(result<31:0>,15));
+    }
+    result<(32*i)+31:(32*i)> = result<(32*i)+31:(32*i)> EOR ROL(result<(32*i)+31:(32*i)>,15) EOR ROL(result<(32*i)+31:(32*i)>,23);
+}
+V[d] = result;

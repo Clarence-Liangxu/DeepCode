@@ -1,0 +1,17 @@
+CheckFPAdvSIMDEnabled64();
+bits(datasize) operand1 = V[n];
+bits(datasize) operand2 = V[m];
+bits(datasize) operand3 = V[d];
+bits(datasize) result;
+
+for e = 0 to elements-1
+    bits(16) elt1_a = Elem[operand1, 2 * e + 0, 16];
+    bits(16) elt1_b = Elem[operand1, 2 * e + 1, 16];
+    bits(16) elt2_a = Elem[operand2, 2 * e + 0, 16];
+    bits(16) elt2_b = Elem[operand2, 2 * e + 1, 16];
+
+    bits(32) sum = Elem[operand3, e, 32];
+    sum = BFDotAdd(sum, elt1_a, elt1_b, elt2_a, elt2_b, FPCR[]);
+    Elem[result, e, 32] = sum;
+
+V[d] = result;

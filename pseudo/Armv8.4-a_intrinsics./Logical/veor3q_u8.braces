@@ -1,0 +1,6 @@
+AArch64.CheckFPAdvSIMDEnabled();
+
+bits(128) Vm = V[m];
+bits(128) Vn = V[n];
+bits(128) Va = V[a];
+V[d] = Vn EOR Vm EOR Va;

@@ -1,0 +1,4 @@
+CheckFPAdvSIMDEnabled64();
+bits(datasize) operand = V[n];
+boolean altfp = FALSE;
+V[d] = Reduce(op, operand, esize, altfp);

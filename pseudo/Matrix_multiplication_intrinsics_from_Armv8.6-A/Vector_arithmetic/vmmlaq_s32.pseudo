@@ -1,0 +1,6 @@
+CheckFPAdvSIMDEnabled64();
+bits(128) operand1 = V[n];
+bits(128) operand2 = V[m];
+bits(128) addend   = V[d];
+
+V[d] = MatMulAdd(addend, operand1, operand2, op1_unsigned, op2_unsigned);
